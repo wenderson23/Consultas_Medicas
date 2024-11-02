@@ -22,15 +22,15 @@ public class Medico {
     private Long idMedico;
 
     @Column(nullable =  false, length = 50)
-    private String nome;
+    private String nomeDoMedico;
 
     @Column(nullable = false, length =  150)
-    private String sobreNome;
+    private String sobreNomeDoMedico;
 
     @Column(nullable = false, length = 250)
     private String especialidade;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 100)
     private String email;
 
     @Column(nullable = false, length = 20)

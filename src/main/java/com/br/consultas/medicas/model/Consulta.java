@@ -1,7 +1,6 @@
 package com.br.consultas.medicas.model;
 
 import java.time.LocalTime;
-import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,11 +10,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.time.LocalDate;
 
 @Data
 @Entity
@@ -23,16 +21,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "tb_consultas")
 public class Consulta {
-    
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idConsulta;
 
-    private LocalTime horario;
+    @Column(nullable = false)
+    private LocalTime hora;
 
-    @Temporal(TemporalType.DATE)
-    private Date data;
+    @Column(nullable = false)
+    private LocalDate data;
 
     @Column(columnDefinition = "TEXT")
     private String descricao;
@@ -44,7 +42,5 @@ public class Consulta {
     @ManyToOne
     @JoinColumn(name = "idPaciente")
     private Paciente paciente;
-
-    
 
 }
